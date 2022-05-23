@@ -1,4 +1,7 @@
 import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Stack;
 
 public class Board {
     private final int n;
@@ -8,11 +11,14 @@ public class Board {
     private boolean finished;
 
     public Board(int n) {
+        // board must be at least 6 tiles long to accomdate for all the pieces
         if (n <= 6)
             throw new IllegalArgumentException("Board must be at least 6 tiles long");
         
         this.n = n;
         this.tiles = new Piece[n];
+
+        // initializing pieces
         this.pieces = new Piece[2][3];
         pieces[0][0] = new King(this, 0, 0);
         pieces[0][1] = new Knight(this, 0, 1);
@@ -21,6 +27,7 @@ public class Board {
         pieces[1][1] = new Knight(this, 1, n - 2);
         pieces[1][2] = new Rook(this, 1, n - 3);
 
+        // putting pieces on board
         for (Piece[] playerPieces : pieces)
             for (Piece playerPiece : playerPieces)
                 tiles[playerPiece.getX()] = playerPiece;
@@ -30,6 +37,7 @@ public class Board {
     }
 
     public Board() {
+        // default 8 tiles long
         this(8);
     }
 
@@ -41,6 +49,13 @@ public class Board {
         return tiles[x];
     }
 
+    /**
+     * Converts the board into a string like the following
+     *  K  N  R  .  .  R  N  K 
+     *  0  1  2  3  4  5  6  7
+     * 
+     * @return A string representation of the board.
+     */
     public String toString() {
         StringBuffer sb = new StringBuffer();
         for (Piece p : tiles) {
@@ -67,12 +82,7 @@ public class Board {
     }
 
     public void move(Piece piece, int x) {
-        int tempX = piece.getX();
-
         piece.setX(x);
-
-        tiles[piece.getX()] = piece;
-        tiles[tempX] = null;
     }
 
     public Piece getTilesElement(int x) {
@@ -101,7 +111,12 @@ public class Board {
         return finished;
     }
 
+    // testing
     public static void main(String[] args) {
+        // TODO: what are some examples of interfaces?
+
+        
+
         Scanner sc = new Scanner(System.in);
         
         Board b = new Board();

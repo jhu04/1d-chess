@@ -4,7 +4,8 @@ public class King extends Piece {
     }
 
     public boolean validPieceMovement(int x) {
-        return Math.abs(x - this.x) == 1;
+        // TODO: implement
+        return false;
     }
 
     // public boolean inCheck() {

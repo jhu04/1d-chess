@@ -3,11 +3,5 @@ public class Knight extends Piece {
         super(board, player, x);
     }
 
-    public boolean validPieceMovement(int x) {
-        return Math.abs(x - this.x) == 2;
-    }
-    
-    public String toString() {
-        return "N";
-    }
+    // TODO: implement
 }

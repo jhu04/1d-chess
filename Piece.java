@@ -1,5 +1,5 @@
-public abstract class Piece {
-    protected final Board board;
+public class Piece { // what does abstract do?
+    final Board board; // what does protected do?
     private final int player;
     protected int x;
     private boolean taken;
@@ -15,10 +15,14 @@ public abstract class Piece {
         return 0 <= x && x < board.size() && (board.getPiece(x) == null || board.getPiece(x).getPlayer() != this.player);
     }
 
-    public abstract boolean validPieceMovement(int x);
+    // TODO: what does abstract do when applied to a method?
+    // public abstract boolean validPieceMovement(int x);
 
     public boolean valid(int x) {
-        return inBounds(x) && validPieceMovement(x);
+        // return inBounds(x) && validPieceMovement(x);
+
+        // TODO: PLACEHOLDER, remove
+        return false;
     }
 
     public int getPlayer() {
@@ -41,7 +45,7 @@ public abstract class Piece {
 
             board.setTilesElement(this.x, this);
         } else
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Invalid x for setX");
     }
 
     public boolean getTaken() {
@@ -56,5 +60,6 @@ public abstract class Piece {
         setTaken(true);
     }
 
-    public abstract String toString();
+    // TODO: see line 18
+    // public abstract String toString();
 }
