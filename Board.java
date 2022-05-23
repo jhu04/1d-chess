@@ -67,12 +67,7 @@ public class Board {
     }
 
     public void move(Piece piece, int x) {
-        int tempX = piece.getX();
-
         piece.setX(x);
-
-        tiles[piece.getX()] = piece;
-        tiles[tempX] = null;
     }
 
     public Piece getTilesElement(int x) {
