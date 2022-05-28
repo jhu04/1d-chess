@@ -3,4 +3,4 @@
 
 Run Board.java to play.
 
-Templates to practice abstract data types in template.
+Templates to practice abstract data types in template branch.
